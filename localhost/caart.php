@@ -37,5 +37,10 @@ class Cart
         }
         $this->saveCart();
     }
+    public function delProduct($id)
+    {
+        unset($this->cart[$id]);
+        $this->saveCart();
+    }
 
 }

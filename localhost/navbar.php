@@ -35,9 +35,9 @@ require_once 'mysql.php';
     <?php
     if(isset($_SESSION['auth']))
     {
-        $stmt= $pdo->query('SELECT * FROM `users` WHERE login="'.$_SESSION['auth'].'"');
-        $proverka = $stmt->fetch();
-        $admin = $proverka['admin'];
+        $pro= $pdo->query('SELECT * FROM `users` WHERE login="'.$_SESSION['auth'].'"');
+        $prov = $pro->fetch();
+        $admin = $prov['admin'];
         if($admin != 2){
             echo '
     <ul></ul>
@@ -47,7 +47,16 @@ require_once 'mysql.php';
         </li></ul>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a href="user.php"><input class="btn btn-primary ml-1" type="button" value="Личный кабинет"></a>
+            <div class="btn-group">
+                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Личный кабинет
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="user.php">Личный кабинет</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="exit.php">Выход</a>
+                  </div>
+            </div>
         </li>
     </ul>';
         }else{

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'mysql.php';
-require_once 'navbar.php';
+
 $sql = "SELECT * FROM `product`";
 $result = $pdo->query($sql);
 
@@ -18,6 +18,7 @@ if(isset($_SESSION['auth']))
     header('Location: http://localhost');
   
 }
+require_once 'navbar.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ if(isset($_SESSION['auth']))
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Товары</title>
+    <title>Список товаров</title>
     <style>
         .login {
             width: 700px;
@@ -34,12 +35,17 @@ if(isset($_SESSION['auth']))
 </head>
 <body>
 <section class="container">
-    <div class="login  width: 535px;
-
-}">
         <h1>Таблица товаров</h1>
+        <table class = "table table-borderless">
+            <thead class="text-center">
+            <tr>
+                <th>№</th>
+                <th>Товары</th>
+                <th>Описание</th>
+                <th>Цена (поштучно)</th>
+                <th>Фото</th>
+            </tr>
         <?php
-        echo "<table><tr><th>№</th><th>Товары</th><th>Описание</th><th>Цена</th><th>Фото</th><th>Редактировать</th><th>Удалить</th></tr>";
         while ($row = $result->fetch())
         {
 
@@ -49,8 +55,8 @@ if(isset($_SESSION['auth']))
             echo '<td>'.$row['text'].'</td>';
             echo '<td>'.$row['price'].'</td>';
             echo '<td><img src="images/'.$row['photo'].'" alt="Картинка" width="100" height="100"></td>';
-            echo '<td><a href="update1.php?id='.$row['id'].'">Редактировать</a></td>';
-            echo '<td><a href="delete1.php?id='.$row['id'].'">Удалить</a></td>';
+            echo '<td><a href="update1.php?id='.$row['id'].'"><img src="images/icons/red_icon.png" alt="Картинка" title="Редактировать" width="40" height="40"></a>';
+            echo '<td><a href="delete1.php?id='.$row['id'].'"><img src="images/icons/close_icon.png" alt="Картинка" title="Удалить" width="40" height="40"></a></td>';
             echo "</tr>";
 
         }

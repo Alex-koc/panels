@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'mysql.php';
-require_once 'navbar.php';
+
 if(isset($_SESSION['auth']))
 {
     $stmt= $pdo->query('SELECT * FROM `users` WHERE login="'.$_SESSION['auth'].'"');
@@ -35,7 +35,7 @@ if(isset($_POST['commit']))
 }
 
 
-
+require_once 'navbar.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +48,8 @@ if(isset($_POST['commit']))
 <body>
 <section class="container">
     <div class="login">
-        <?php Echo'<h1>Обновить Товар('.$stmt["name"].')</h1> '; ?>
-       <form method="post" enctype="multipart/form-data">        <?php
+        <?php Echo'<h1>Обновить товар('.$stmt["name"].')</h1> '; ?>
+       <form method="post" enctype="multipart/form-data"> <?php
             Echo'<p><input type="text" name="name" value="'.$stmt["name"].'" placeholder="Название"></p>';
             Echo'<p><input type="text" name="text" value="'.$stmt["text"].'" placeholder="Описание"></p>';
             Echo'<p><input type="text" name="price" value="'.$stmt["price"].'" placeholder="Цена"></p>';

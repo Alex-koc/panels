@@ -44,8 +44,6 @@ if(isset($_SESSION['auth']))
             <tr>
                 <th>№</th>
                 <th>Название</th>
-                <th>Редактировать</th>
-                <th>Удалить</th>
             </tr>
             <?php
 
@@ -55,8 +53,8 @@ if(isset($_SESSION['auth']))
             echo "<tr>";
             echo '<td>'.$row['id'].'</td>';
             echo '<td>'.$row['name'].'</td>';
-            echo '<td><a href="update.php?id='.$row['id'].'">Редактировать</a></td>';
-            echo '<td><a href="delete.php?id='.$row['id'].'">Удалить</a></td>';
+            echo '<td><a href="update.php?id='.$row['id'].'"><img src="images/icons/red_icon.png" title="Редактировать" alt="Картинка" width="40" height="40"></a>';
+            echo '<td><a href="delete.php?id='.$row['id'].'"><img src="images/icons/close_icon.png" title="Удалить" alt="Картинка" width="40" height="40"></a></td>';
             echo "</tr>";
 
         }

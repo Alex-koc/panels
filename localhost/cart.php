@@ -35,10 +35,12 @@ require_once 'navbar.php';
 
                 while ($row = $stmt->fetch())
                 {
+                    echo "<tr>";
                     echo '<td><a>'.$row['name'].'</a></td>';
-                    echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="150" height="150"></td>';
+                    echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="160" height="150"></td>';
                     echo '<td>'.$row['text'].'</td>';
-                    echo '<td><a href="cart_rem.php?id='.$row['id'].'"> - </a><a>'.$count.'</a><a href="cart_add.php?id='.$row['id'].'"> + </a></td>';
+                    echo '<td><a href="cart_rem.php?id='.$row['id'].'"><img src="images/icons/minus_icon.png" title="Убавить товар" alt="Картинка" width="20" height="20"></a><a> '.$count.' </a><a href="cart_add.php?id='.$row['id'].'"><img src="images/icons/plus_icon.png" title="Прибавить товар" alt="Картинка" width="20" height="20"></a></td>';
+                    echo '<td><a href="cart_dell.php?id='.$row['id'].'"><img src="images/icons/close_icon.png" title="Удалить" alt="Картинка" width="40" height="40"></a></td>';
                     echo "</tr>";
 
                 }

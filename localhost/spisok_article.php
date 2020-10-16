@@ -34,18 +34,25 @@ if(isset($_SESSION['auth']))
     <div class="login">
 
         <h1>Статьи</h1>
+        <table class = "table table-borderless">
+            <thead class="text-center">
+            <tr>
+                <th>№</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Фото</th>
+            </tr>
         <?php
         $stmt = $pdo->query('SELECT *, `article`.id AS idR FROM `article` ORDER BY idR DESC');
-        echo "<table><tr><th>№</th><th>Название</th><th>Описание</th><th>Фото</th><th>Редактировать</th><th>Удалить</th></tr>";
         while ($row = $stmt->fetch())
         {
             echo "<tr>";
             echo '<td>'.$row['idR'].'</td>';
             echo '<td><a href="comments.php?id='.$row['id'].'">'.$row['name'].'</a></td>';
             echo '<td>'.$row['text'].'</td>';
-            echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="150" height="150"></td>';
-            echo '<td><a href="update_spisok_article.php?id='.$row['id'].'">Редактировать</a></td>';
-            echo '<td><a href="delete_spisok_article.php?id='.$row['id'].'">Удалить</a></td>';
+            echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="120" height="120"></td>';
+            echo '<td><a href="update_spisok_article.php?id='.$row['id'].'"><img src="images/icons/red_icon.png" title="Редактировать" alt="Картинка" width="40" height="40"></a>';
+            echo '<td><a href="delete_spisok_article.php?id='.$row['id'].'"><img src="images/icons/close_icon.png" title="Удалить" alt="Картинка" width="40" height="40"></a></td>';
             echo "</tr>";
 
         }

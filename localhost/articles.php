@@ -33,10 +33,6 @@ if(isset($_SESSION['auth']))
 
                 <p class="submit"><input type="submit" name="commit" value="Добавить"></p>
             </form>
-        <form action="spisok_article.php">
-            <br>
-            <button>Вернуться в Личный кабинет</button>
-        </form>
     </div>
 </section>
 </body>

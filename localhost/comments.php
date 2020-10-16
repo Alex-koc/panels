@@ -21,9 +21,15 @@ $id = $_GET['id'];
     <div class="login">
 
         <h1>Коментарии</h1>
+        <table class = "table table-borderless">
+            <thead class="text-center">
+            <tr>
+                <th>№</th>
+                <th>Имя</th>
+                <th>Комментарий</th>
+            </tr>
         <?php
         $stmt = $pdo->query("SELECT *,comments.id AS idR FROM `comments` LEFT JOIN users ON comments.user = users.id WHERE `art` =".$id);
-        echo "<table><tr><th>№</th><th>ИМЯ</th><th>Описание</th></tr>";
         while ($row = $stmt->fetch())
         {
             echo "<tr>";
