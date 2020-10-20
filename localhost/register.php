@@ -28,6 +28,8 @@ require_once 'navbar.php';
                 </form>
             </div>
         </section>
-
+        <?php
+        require_once 'footer.php';
+        ?>
 </body>
 </html>

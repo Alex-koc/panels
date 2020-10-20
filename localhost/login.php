@@ -23,5 +23,8 @@ require_once 'navbar.php';
         <p>Вы не зарегистрированы? <a href="register.php">То нажмите сюда! </a> </p>
     </div>
 </section>
+<?php
+require_once 'footer.php';
+?>
 </body>
 </html>

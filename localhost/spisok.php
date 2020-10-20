@@ -16,29 +16,49 @@ require_once 'navbar.php';
     </style>
 </head>
 <body>
-<section class="container">
-    <div class="login">
+<div class="container">
+    <h2>Таблица товаров</h2>
+    <hr>
+    <div class="row">
+        <div class="col-sm">
+            <table class = "table table-borderless">
+                <thead class="text-center">
+                <tr>
+                    <th>Название</th>
+                    <th>Фото</th>
+                    <th>Описание</th>
+                    <th>Количество</th>
+                </tr>
+                <?php
+                $stmt = $pdo->query('SELECT *, `product`.id AS idR FROM `product` ORDER BY idR ASC');
+                echo "<table><tr><th>№</th><th>Товары</th><th>Описание</th><th>Цена</th><th>Фото</th></tr>";
+                while ($row = $stmt->fetch())
+                {
+                    echo "<tr>";
+                    echo '<td>'.$row['idR'].'</td>';
+                    echo '<td><a href="cart_add.php?id='.$row['id'].'">'.$row['name'].'</td>';
+                    echo '<td>'.$row['text'].'</td>';
+                    echo '<td>'.$row['price'].'</td>';
+                    echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="160" height="150"></td>';
+                    echo "</tr>";
 
-        <h1>Таблица товаров</h1>
-        <?php
-        $stmt = $pdo->query('SELECT *, `product`.id AS idR FROM `product` ORDER BY idR ASC');
-        echo "<table><tr><th>№</th><th>Товары</th><th>Описание</th><th>Цена</th><th>Фото</th></tr>";
-        while ($row = $stmt->fetch())
-        {
-            echo "<tr>";
-            echo '<td>'.$row['idR'].'</td>';
-            echo '<td><a href="cart_add.php?id='.$row['id'].'">'.$row['name'].'</td>';
-            echo '<td>'.$row['text'].'</td>';
-            echo '<td>'.$row['price'].'</td>';
-            echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="160" height="150"></td>';
-            echo "</tr>";
-
-        }
-        ?>
-        </table>
-
-
+                }?>
+            </table>
+        </div>
+        <div class="col-sm">
+            <h3>Фильтр</h3>
+            <?php
+            
+            ?>
+            <hr>
+        </div>
     </div>
-</section>
+</div>
+<?php
+require_once 'footer.php';
+?>
+<?php
+require_once 'footer.php';
+?>
 </body>
 </html>

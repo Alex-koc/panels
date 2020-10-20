@@ -60,4 +60,12 @@ if(isset($_POST['commit']))
         </form>
     </div>
 </section>
+<style>
+    .footer {
+        flex: 0 0 auto;
+    }
+</style>
+<?php
+require_once 'footer.php';
+?>
 </body>

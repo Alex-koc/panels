@@ -3,7 +3,12 @@ session_start();
 require_once 'mysql.php';
 
 ?>
-<footer class="page-footer font-small mdb-color bg-secondary text-white pt-4">
+<style>
+.footer {
+    flex-shrink: 0;
+}
+</style>
+<footer class="page-footer footer font-small mdb-color bg-secondary text-white pt-4">
 
     <div class="container text-center text-md-left">
 
@@ -13,7 +18,6 @@ require_once 'mysql.php';
                 <h6 class="text-uppercase mb-4 font-weight-bold">Наш магазин</h6>
                 <p>Добро пожаловать! Вас приветствует магазин фруктов "Шестёрочка"! </p>
                     <p> Мы рады предложить Вам огромный список качественных и свежих товаров! </p>
-                    <p>Спешите приобрести!</p>
             </div>
 
             <hr class="w-100 clearfix d-md-none">
@@ -21,43 +25,29 @@ require_once 'mysql.php';
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Меню</h6>
                 <p>
-                    <a href="#!">MDBootstrap</a>
+                    <a href="index.php">Главная</a>
                 </p>
                 <p>
-                    <a href="#!">MDWordPress</a>
+                    <a href="spisok.php">Товары</a>
                 </p>
                 <p>
-                    <a href="#!">BrandFlow</a>
+                    <a href="spisok1.php">Категории</a>
                 </p>
                 <p>
-                    <a href="#!">Bootstrap Angular</a>
+                    <a href="article.php">Статьи</a>
                 </p>
             </div>
 
             <hr class="w-100 clearfix d-md-none">
 
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold">Продукция</h6>
-                <p>
-                    <a href="#!">Your Account</a>
-                </p>
-                <p>
-                    <a href="#!">Become an Affiliate</a>
-                </p>
-                <p>
-                    <a href="#!">Shipping Rates</a>
-                </p>
-                <p>
-                    <a href="#!">Help</a>
-                </p>
-            </div>
+
 
             <hr class="w-100 clearfix d-md-none">
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Контакты</h6>
                 <p>
-                    <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <i class="fas fa-home mr-3"></i>Абакан</p>
                 <p>
                     <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
                 <p>

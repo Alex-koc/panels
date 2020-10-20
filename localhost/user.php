@@ -62,5 +62,9 @@ if(isset($_SESSION['auth']))
                 <br>
             </div>
         </section>
+
 </body>
+<?php
+require_once 'footer.php';
+?>
 </html>

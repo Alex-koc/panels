@@ -11,10 +11,10 @@ if(isset($_SESSION['auth']))
   
 }
 
-
-$text=$_POST['text'];
+$art=$_POST['art'];
 $user=$_POST['user'];
+$text=$_POST['comment'];
 
-$stmt= $pdo->query('INSERT INTO `comments` (`user`,`text`)
-        VALUES ("'.$user.'","'.$text.'")');
-header('Location: http://localhost/comments.php');
+$stmt= $pdo->query('INSERT INTO `comments` (`art`,`user`,`text`)
+        VALUES ("'.$art.'","'.$user.'","'.$text.'")');
+header("Location:" . $_SERVER['HTTP_REFERER']);

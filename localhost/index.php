@@ -94,9 +94,13 @@ require_once 'navbar.php';
                 <p class="card-text">Информация</p>
             </div>
         </div>
-
+            </div>
     </div>
-
 </div>
+
 </body>
+
 </html>
+<?php
+require_once 'footer.php';
+?>

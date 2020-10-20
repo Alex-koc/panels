@@ -1,19 +1,31 @@
 <?php
 require_once 'mysql.php';
-require_once 'navbar.php';
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Корзина</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Оформление заказа</title>
 </head>
 <body>
 <div class="container">
-    <h2>Корзина</h2>
+    <hr>
+    <h2>Оформление Заказа</h2>
     <hr>
     <div class="row">
+        <div class="col-sm">
+            <form method="post" enctype="multipart/form-data" action="order.php">
+                <p><input type="text" name="name" value="" placeholder="Имя"></p>
+                <p><input type="text" name="phone" value="" placeholder="Телефон"></p>
+                <p><input type="text" name="adres" value="" placeholder="Адрес"></p>
+                <input class="btn btn-warning ml-1" type="submit" value="Подтвердить заказ">
+            </form>
+
+        </div>
         <div class="col-sm">
             <table class = "table table-borderless">
                 <thead class="text-center">
@@ -22,6 +34,7 @@ require_once 'navbar.php';
                     <th>Фото</th>
                     <th>Описание</th>
                     <th>Количество</th>
+                    <th>Цена</th>
                 </tr>
                 <?php
                 require_once 'caart.php';
@@ -36,33 +49,20 @@ require_once 'navbar.php';
                         echo '<td><a>'.$row['name'].'</a></td>';
                         echo '<td><img src="images/'.$row['photo'].'" alt="Здесь должна быть картинка" width="160" height="150"></td>';
                         echo '<td>'.$row['text'].'</td>';
-                        echo '<td><a href="cart_rem.php?id='.$row['id'].'"><img src="images/icons/minus_icon.png" title="Убавить товар" alt="Картинка" width="20" height="20"></a><a> '.$count.' </a><a href="cart_add.php?id='.$row['id'].'"><img src="images/icons/plus_icon.png" title="Прибавить товар" alt="Картинка" width="20" height="20"></a><p>'.$row['price'].'₽ /шт</p></td>';
+                        echo '<td><a> '.$count.' </a></td>';
                         $price= $count * $row['price'];
                         echo '<td><a>'.$price.'₽</a></td>';
-                        echo '<td><a href="cart_del.php?id='.$row['id'].'"><img src="images/icons/close_icon.png" title="Удалить" alt="Картинка" width="40" height="40"></a></td>';
                         echo "</tr>";
                         $sum += $count;
                         $summ += $price;
 
                     }
-
                 }
-
+                echo '<a>Итого: '.$sum.' товара на '.$summ.' ₽</a>';
                 ?>
             </table>
         </div>
-        <div class="col-sm">
-            <h3></h3>
-            <?php
-            echo '<a>Итого: '.$sum.' товара на '.$summ.' ₽</a>';
-            ?>
-            <hr>
-            <a href="form.php"><input class="btn btn-warning ml-1" type="button" value="Оформить заказ"></a>
-        </div>
     </div>
-</div>
-<?php
-require_once 'footer.php';
-?>
+
 </body>
 </html>

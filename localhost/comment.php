@@ -22,8 +22,7 @@ if(isset($_SESSION['auth']))
     <title>Статья</title>
 </head>
 <body>
-<section class="container">
-    <div class="login">
+
         <h1>Добавить коментарий</h1>
             <form method="post" enctype="multipart/form-data" action="comments_add.php">
             <?php echo '<input type="hidden" name="user" value="'.$idR.'" placeholder="'.$idR.'">'; ?>
@@ -36,6 +35,5 @@ if(isset($_SESSION['auth']))
             <button>Назад</button>
         </form>
     </div>
-</section>
 </body>
 </html>

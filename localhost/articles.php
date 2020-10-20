@@ -35,5 +35,8 @@ if(isset($_SESSION['auth']))
             </form>
     </div>
 </section>
+<?php
+require_once 'footer.php';
+?>
 </body>
 </html>
